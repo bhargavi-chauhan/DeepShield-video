@@ -1,4 +1,4 @@
-# DeepShield-video
+<img width="348" height="23" alt="image" src="https://github.com/user-attachments/assets/56bd37f2-5ef7-46fd-9735-2f10aafab191" /># DeepShield-video
 An advanced deepfake detection system that analyzes videos using a hybrid **CNN + Transformer architecture**.
 
 The system extracts facial frames, learns spatial features using CNN, and captures temporal inconsistencies using a Transformer encoder to accurately classify videos as Real or Fake.
@@ -62,7 +62,7 @@ DeepShield-video/
 ├── datasets/videos/
 │              ├── real/
 │              └── fake/
-├── test_dataset/
+├── test_dataset/videos/
 ├── outputs/
 ├── requirements.txt
 └── .gitignore
@@ -114,7 +114,7 @@ Generated in `outputs/`:
 ## Inference (Video)
 
 ```bash
-python -m inference.predict_video --video <path/to/video>.mp4
+python -m inference.predict_video --video test_dataset/videos/<test_video#>.mp4
 ```
 
 ### Output:
