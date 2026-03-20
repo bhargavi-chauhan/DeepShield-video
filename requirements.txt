@@ -1,0 +1,15 @@
+torch
+torchvision
+opencv-python
+numpy
+matplotlib
+tqdm
+moviepy
+
+# torch>=2.0.0
+# torchvision>=0.15.0
+# opencv-python>=4.8.0
+# numpy>=1.24.0
+# matplotlib>=3.7.0
+# tqdm>=4.66.0
+# moviepy>=1.0.3
