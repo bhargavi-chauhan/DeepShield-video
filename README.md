@@ -1,4 +1,4 @@
-<img width="348" height="23" alt="image" src="https://github.com/user-attachments/assets/56bd37f2-5ef7-46fd-9735-2f10aafab191" /># DeepShield-video
+# DeepShield-video
 An advanced deepfake detection system that analyzes videos using a hybrid **CNN + Transformer architecture**.
 
 The system extracts facial frames, learns spatial features using CNN, and captures temporal inconsistencies using a Transformer encoder to accurately classify videos as Real or Fake.
