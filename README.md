@@ -5,7 +5,7 @@ The system extracts facial frames, learns spatial features using CNN, and captur
 
 ---
 
-## 🧠 Key Innovations
+## Key Innovations
 
 ### ✅ CNN + Transformer Temporal Modeling
 
@@ -33,15 +33,16 @@ The system extracts facial frames, learns spatial features using CNN, and captur
 
 ---
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 DeepShield-video/
 │
 ├── models/
 │   ├── cnn_model.py
+|   ├── cnn_feature_extractor.py
 │   ├── cnn_transformer_model.py
-│   ├── cnn_lstm_model.py (legacy)
+│   └── cnn_lstm_model.py (legacy)
 │
 ├── training/
 │   └── train_lstm.py
@@ -51,8 +52,8 @@ DeepShield-video/
 │   └── realtime_demo.py
 │
 ├── preprocessing/
-│   ├── face_detection.py
-│   └── extract_frames.py
+│   ├── extract_frames.py
+│   └── face_detection.py
 |
 ├── utils/
 │   ├── video_dataset.py
@@ -60,16 +61,16 @@ DeepShield-video/
 |
 ├── datasets/videos/
 │              ├── real/
-│              ├── fake/
-│
+│              └── fake/
+├── test_dataset/
 ├── outputs/
-├── models/
+├── requirements.txt
 └── .gitignore
 ```
 
 ---
 
-## ⚙️ Installation
+## Installation
 
 ```
 git clone https://github.com/bhargavi-chauhan/DeepShield-video
@@ -78,13 +79,13 @@ cd DeepShield-video
 pip install -r requirements.txt
 ```
 
-## 🏋️ Training
+## Training
 
 ```
 python -m training.train_lstm --data_dir datasets/videos
 ```
 
-### 🔧 Features
+### Features
 
 * Automatic train/validation split
 * Mixed Precision Training (AMP)
@@ -103,14 +104,14 @@ python -m training.train_lstm --data_dir datasets/videos
 
 Generated in `outputs/`:
 
-* 📉 Loss Curve
-* 📈 Accuracy Curve
-* 📊 Confusion Matrix (best model)
-* 📉 ROC Curve + AUC
+*  Loss Curve
+*  Accuracy Curve
+*  Confusion Matrix (best model)
+*  ROC Curve + AUC
 
 ---
 
-## 🎬 Inference (Video)
+## Inference (Video)
 
 ```bash
 python -m inference.predict_video --video <path/to/video>.mp4
@@ -125,7 +126,7 @@ python -m inference.predict_video --video <path/to/video>.mp4
 
 ---
 
-## 🎥 Real-Time Demo
+## Real-Time Demo
 
 ```bash
 python -m inference.realtime_demo
