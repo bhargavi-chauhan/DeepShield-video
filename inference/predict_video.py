@@ -10,7 +10,8 @@ import os
 import matplotlib.pyplot as plt
 import torch.nn.functional as F
 
-from models.cnn_lstm_model import CNN_LSTM
+# from models.cnn_lstm_model import CNN_LSTM
+from models.cnn_transformer_model import CNN_Transformer
 # from models.cnn_model import DeepfakeCNN  # your old CNN model
 
 import argparse
@@ -34,9 +35,9 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
 
 # ---------------- LOAD MODELS ----------------
-lstm_model = CNN_LSTM().to(device)
-lstm_model.load_state_dict(torch.load(MODEL_PATH, map_location=device, weights_only=True))
-lstm_model.eval()
+model = CNN_Transformer().to(device)
+model.load_state_dict(torch.load(MODEL_PATH, map_location=device))
+model.eval()
 
 # cnn_model = DeepfakeCNN().to(device)
 # cnn_model.load_state_dict(torch.load(CNN_MODEL_PATH, map_location=device))
@@ -131,7 +132,8 @@ for i in range(len(faces) - SEQ_LEN + 1):
     seq = seq.unsqueeze(0).to(device)
 
     with torch.no_grad():
-        output = lstm_model(seq)
+        # output = lstm_model(seq)
+        output = model(seq)
         prob = F.softmax(output, dim=1)[0][1].item()
 
     frame_scores.append(prob)
