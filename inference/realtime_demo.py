@@ -3,12 +3,14 @@ import torch
 import numpy as np
 import torch.nn.functional as F
 
-from models.cnn_lstm_model import CNN_LSTM
+# from models.cnn_lstm_model import CNN_LSTM
+from models.cnn_transformer_model import CNN_Transformer
 
 # ---------------- CONFIG ----------------
 SEQ_LEN = 10
 IMG_SIZE = 224
-MODEL_PATH = "models/deepshield_video_lstm.pth"
+# MODEL_PATH = "models/deepshield_video_lstm.pth"
+MODEL_PATH = "models/best_model.pth"
 
 # ---------------- DEVICE ----------------
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -18,7 +20,7 @@ if torch.cuda.is_available():
     print("GPU:", torch.cuda.get_device_name(0))
 
 # ---------------- LOAD MODEL ----------------
-model = CNN_LSTM().to(device)
+model = CNN_Transformer().to(device)
 model.load_state_dict(torch.load(MODEL_PATH, map_location=device))
 model.eval()
 
