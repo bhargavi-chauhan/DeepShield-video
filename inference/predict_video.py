@@ -26,7 +26,7 @@ VIDEO_PATH = args.video
 # VIDEO_PATH = "test.mp4"
 SEQ_LEN = 10
 IMG_SIZE = 224
-MODEL_PATH = "models/deepshield_video_lstm.pth"
+MODEL_PATH = "models/best_model.pth"
 # CNN_MODEL_PATH = "models/deepshield_image_cnn.pth"
 
 # ---------------- DEVICE ----------------
@@ -35,7 +35,7 @@ print(f"Using device: {device}")
 
 # ---------------- LOAD MODELS ----------------
 lstm_model = CNN_LSTM().to(device)
-lstm_model.load_state_dict(torch.load(MODEL_PATH, map_location=device))
+lstm_model.load_state_dict(torch.load(MODEL_PATH, map_location=device, weights_only=True))
 lstm_model.eval()
 
 # cnn_model = DeepfakeCNN().to(device)
